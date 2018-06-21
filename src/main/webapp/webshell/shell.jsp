@@ -6,7 +6,7 @@
 	</head>
 	<body onunload="closeShell()">
 		<div id="divStart">
-			Shell Type: <input id="shellName" type="text" value="bash" />
+			Shell Type: <input id="shellName" type="text" value="bash -i" />
 			Encoding: <input id="shellEncoding" type="text" value="UTF-8" />
 			<input type="button" value="Open" onclick="openShell()" />
 		</div>
