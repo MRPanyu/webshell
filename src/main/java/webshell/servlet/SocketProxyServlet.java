@@ -55,14 +55,15 @@ public class SocketProxyServlet extends HttpServlet {
 				closeOutput(request, response);
 			}
 		} catch (Exception e) {
+			// e.printStackTrace();
 			response.sendError(500, e.getMessage());
 		}
 	}
 
 	private void open(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String key = request.getHeader("key");
-		String host = request.getHeader("to_host");
-		String port = request.getHeader("to_port");
+		String host = request.getHeader("sps-to-host");
+		String port = request.getHeader("sps-to-port");
 		synchronized (socketProxyMap) {
 			SocketProxy sp = socketProxyMap.get(key);
 			if (sp != null) {

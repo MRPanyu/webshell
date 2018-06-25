@@ -73,8 +73,8 @@ public class ProxyedSocket implements Closeable {
 		Map<String, String> headers = new LinkedHashMap<String, String>();
 		headers.put("fn", "open");
 		headers.put("key", key);
-		headers.put("to_host", host);
-		headers.put("to_port", String.valueOf(port));
+		headers.put("sps-to-host", host);
+		headers.put("sps-to-port", String.valueOf(port));
 		httpPost(headers, null);
 	}
 
