@@ -1,5 +1,6 @@
 package webshellclient;
 
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
@@ -22,8 +23,9 @@ public class Sock5ProxyServer {
 	public static void startServer() {
 		int errorTimes = 0;
 		while (errorTimes < 20) {
+			ServerSocket serverSocket = null;
 			try {
-				ServerSocket serverSocket = new ServerSocket(port);
+				serverSocket = new ServerSocket(port);
 				System.out.println("Server started at port " + port);
 				while (true) {
 					Socket socket = serverSocket.accept();
@@ -34,6 +36,13 @@ public class Sock5ProxyServer {
 			} catch (Exception e) {
 				e.printStackTrace();
 				errorTimes++;
+			} finally {
+				if(serverSocket != null) {
+					try {
+						serverSocket.close();
+					} catch (IOException e) {
+					}
+				}
 			}
 		}
 	}

@@ -9,8 +9,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.ByteBuffer;
 
-import javax.security.auth.login.Configuration;
-
 public class Sock5ProxyHandler implements Runnable {
 
 	private String socketProxyServletURL;
