@@ -45,6 +45,7 @@
 				params.url = $("#url").val();
 				params.user = $("#user").val();
 				params.password = $("#password").val();
+				params.limit = $("#limit").val();
 				params.sql = $("#sql").val();
 				$.ajax({
 					url: "jdbcService.jsp",
